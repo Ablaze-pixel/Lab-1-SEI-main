@@ -47,3 +47,7 @@ void app_lab_1_1_run(void)
     delay(1000);
    
 }
+
+
+
+//alohaaaaaaaaaaaaaaaaaaa
