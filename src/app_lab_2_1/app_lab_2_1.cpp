@@ -17,5 +17,4 @@ void app_lab_2_1_setup()
 void app_lab_2_1_run()
 {
     srv_os_seq_run();
-    run_idle_task();
 }                  

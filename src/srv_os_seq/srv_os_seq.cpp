@@ -57,6 +57,5 @@ void srv_os_seq_setup() {
 }
 
 void srv_os_seq_run() {
-
-    delay(SYSTEM_TICK); //do nothing, just wait for the timer interrupt to call the scheduler
+    run_idle_task();
 }

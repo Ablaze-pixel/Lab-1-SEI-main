@@ -7,9 +7,9 @@
 #define SENSOR_TASK_OFFSET_MS 50
 #define STATUS_TASK_RECURRENCE_MS 500
 
-static volatile int g_motion_state = 0;
-static volatile uint32_t g_sample_count = 0;
-static volatile uint32_t g_motion_count = 0;
+static volatile int g_motion_state = 0; //variabila pentru stocarea starii curente a senzorului de miscare (0 = fara miscare, 1 = miscare detectata)
+static volatile uint32_t g_sample_count = 0; //variabila pentru numararea esantioanelor preluate de la senzor
+static volatile uint32_t g_motion_count = 0; //variabila pentru numararea evenimentelor de miscare detectata
 
 static void motion_task(void *pvParameters);
 static void IDLE_status_task(void *pvParameters);
@@ -41,14 +41,14 @@ void motion_task(void *pvParameters)
 
     while (1)
     {
-        int motion = dd_sns_motion_read();
+        int motion = dd_sns_motion_read(); //citirea starii senzorului de miscare (0 sau 1)
         if (motion && !g_motion_state)
         {
             g_motion_count++;
         }
 
-        g_motion_state = motion;
-        g_sample_count++;
+        g_motion_state = motion; //actualizarea starii curente a senzorului
+        g_sample_count++; 
 
         vTaskDelayUntil(&xLastWakeTime, SENSOR_TASK_RECURRENCE_MS / portTICK_PERIOD_MS);
     }

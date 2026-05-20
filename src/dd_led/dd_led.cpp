@@ -1,10 +1,10 @@
 #include "dd_led.h"
 #include <Arduino.h>
 
-#define LED_COUNT 2
+#define LED_COUNT 8
 
 // Vector cu pinii LED-urilor
-static const uint8_t led_pins[LED_COUNT] = {13, 12};
+static const uint8_t led_pins[LED_COUNT] = {13, 12, 34, 36, 38, 40, 42, 44};
 
 void dd_led_setup(void)
 {

@@ -26,7 +26,7 @@ void app_lab_2_2_setup()
     xTaskCreate(task_2, "Task 2", 1000, NULL, 1, NULL);
     xTaskCreate(task_3, "Task 3", 1000, NULL, 1, NULL);
 
-    vTaskStartScheduler();
+    vTaskStartScheduler(); 
     printf("System initialized. Starting scheduler...\r\n");
 }
 
